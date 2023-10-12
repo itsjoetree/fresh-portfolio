@@ -28,8 +28,8 @@ const HomeMap = {
   "About": {
     "Title": "About",
     "Text": [
-      "Hey there, I'm Joe. I enjoy exploring nature, playing indie video games and building software. I've been building for the web professionally for the past few years.",
-      "My experience thus far has primarily been with C# and TypeScript. In the past year I have transitioned to a front-end focused role to form a specialization in building out user interfaces."
+      "Hey there, I'm Joe. I enjoy exploring nature, making music and building software.",
+      "I've been building for the web professionally for the past few years, primarily working with TypeScript and C#."
     ]
   },
   "Tech": {
