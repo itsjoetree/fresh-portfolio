@@ -13,11 +13,15 @@ const HomeMap = {
     "Items": [
       {
         "Text": "GitHub",
-        "Link": "https://github.com/itsjoetree"
+        "Link": "https://github.com/itsjoetree/"
       },
       {
         "Text": "Instagram",
-        "Link": "https://instagram.com/itsjoetree"
+        "Link": "https://instagram.com/itsjoetree/"
+      },
+      {
+        "Text": "Music",
+        "Link": "https://joetreemusic.com/"
       }
     ]
   },
@@ -108,7 +112,7 @@ export default function Home() {
 
   return (
     <Main>
-      <div className="flex gap-4 justify-between items-center">
+      <div className="flex gap-4 justify-between items-center lg:justify-center lg:gap-12">
         <img alt="Photo of me" src="/me-sm.jpg" className="select-none pointer-events-none w-32 h-32 rounded-full inline-block md:hidden" />
 
         <div className="flex flex-col gap-2">
@@ -169,7 +173,7 @@ export default function Home() {
 
       <div className="pt-5 flex flex-col">
         <BlueSnail maxSteps={190} />
-        <span className="text-blue-400">Last Updated: 10/10/2023</span>
+        <span className="text-blue-400">Last Updated: 10/11/2023</span>
       </div>
     </Main>
   );
