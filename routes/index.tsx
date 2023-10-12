@@ -1,4 +1,5 @@
 import Main from "../components/Main.tsx";
+import Section from "../components/Section.tsx";
 import BlueSnail from "../islands/BlueSnail.tsx";
 
 const HomeMap = {
@@ -36,6 +37,18 @@ const HomeMap = {
         "Link": "https://react.dev/",
         "ClassNames": "animate-spin-slow",
         "Height": 83.4
+      },
+      {
+        "Title": "Vite",
+        "Img": "/vite.png",
+        "Link": "https://vitejs.dev/",
+        "ClassNames": "h-full",
+      },
+      {
+        "Title": "Astro",
+        "Img": "/astro.png",
+        "Link": "https://astro.build/",
+        "ClassNames": "h-full w-20",
       },
       {
         "Title": "Tailwind",
@@ -89,6 +102,8 @@ const HomeMap = {
   }
 };
 
+
+
 export default function Home() {
 
   return (
@@ -103,23 +118,23 @@ export default function Home() {
         <img alt="Photo of me" src="/me.jpg" className="select-none pointer-events-none w-60 h-60 rounded-full hidden md:inline-block" />
       </div>
 
-      <div className="flex flex-col gap-3">
+      <Section>
         <h1 className="text-2xl font-bold">{HomeMap.Socials.Title}</h1>
         <div className="flex flex-wrap gap-4">
         {HomeMap.Socials.Items.map(i => <a className="border border-white rounded-full py-1 px-4 self-start hover:text-black hover:bg-white" href={i.Link} target="_blank">
           {i.Text}
         </a>)}
         </div>
-      </div>
+      </Section>
 
-      <div className="flex flex-col gap-3">
+      <Section>
         <h1 className="text-2xl font-bold">{HomeMap.About.Title}</h1>
         <div className="flex flex-col gap-2">
         {HomeMap.About.Text.map(t => <p key={t}>{t}</p>)}
         </div>
-      </div>
+      </Section>
 
-      <div className="flex flex-col gap-3">
+      <Section>
         <h1 className="text-2xl font-bold">{HomeMap.Tech.Title}</h1>
         <div className="flex gap-4 flex-wrap items-center">
           {
@@ -128,9 +143,9 @@ export default function Home() {
             </a>)
           }
         </div>
-      </div>
+      </Section>
 
-      <div className="flex flex-col gap-3">
+      <Section>
         <h1 className="text-2xl font-bold">{HomeMap.Catching.Title}</h1>
         <div className="flex gap-4 items-center">
           {
@@ -139,9 +154,9 @@ export default function Home() {
             </a>)
           }
         </div>
-      </div>
+      </Section>
 
-      <div className="flex flex-col gap-3">
+      <Section>
         <h1 className="text-2xl font-bold">{HomeMap.UpTo.Title}</h1>
         <div className="flex flex-wrap gap-4">
           {
@@ -150,7 +165,7 @@ export default function Home() {
             </p>)
           }
         </div>
-      </div>
+      </Section>
 
       <div className="pt-5 flex flex-col">
         <BlueSnail maxSteps={190} />
