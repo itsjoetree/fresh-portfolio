@@ -171,7 +171,7 @@ export default function Home() {
 
       <div className="pt-5 flex flex-col">
         <BlueSnail maxSteps={190} />
-        <span className="text-blue-400">Last Updated: 10/16/2023</span>
+        <span className="text-blue-400">Last Updated: 10/17/2023</span>
       </div>
     </Main>
   );
