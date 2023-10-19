@@ -1,143 +1,66 @@
+import { Handlers, PageProps } from "$fresh/server.ts";
+import { VNode } from "preact";
+import { HomeMap } from "./HomeMap.ts";
 import Main from "../components/Main.tsx";
 import Section from "../components/Section.tsx";
-import BlueSnail from "../islands/BlueSnail.tsx";
 
-const HomeMap = {
-  "Hero": {
-    "Title": "Joe Salinas",
-    "Text": "software engineer building for the web"
-  },
+type ContentProps = {
+  musicIcon: VNode;
+  treeIcon: VNode;
+}
 
-  "Socials": {
-    "Title": "Socials",
-    "Items": [
-      {
-        "Text": "GitHub",
-        "Link": "https://github.com/itsjoetree/"
-      },
-      {
-        "Text": "Instagram",
-        "Link": "https://instagram.com/itsjoetree/"
-      },
-      {
-        "Text": "Music",
-        "Link": "https://joetreemusic.com/"
-      }
-    ]
-  },
-  "About": {
-    "Title": "About",
-    "Text": [
-      "Hey there, I'm Joe. I enjoy exploring nature, making music and building software.",
-      "I've been building for the web professionally for the past few years, primarily working with TypeScript and C#."
-    ]
-  },
-  "Tech": {
-    "Title": "What I've been using",
-    "Items": [
-      {
-        "Title": "React",
-        "Img": "/react.png",
-        "Link": "https://react.dev/",
-        "ClassNames": "animate-spin-slow",
-        "Height": 83.4
-      },
-      {
-        "Title": "Vite",
-        "Img": "/vite.png",
-        "Link": "https://vitejs.dev/",
-        "ClassNames": "h-full",
-      },
-      {
-        "Title": "Astro",
-        "Img": "/astro.png",
-        "Link": "https://astro.build/",
-        "ClassNames": "h-full w-20",
-      },
-      {
-        "Title": "Tailwind",
-        "Img": "/tailwind.png",
-        "Link": "https://tailwindcss.com/",
-        "ClassNames": "animate-pulse",
-        "Height": 58.8
-      },
-      {
-        "Title": "C#",
-        "Img": "/csharp.png",
-        "Link": "https://learn.microsoft.com/en-us/dotnet/csharp/tour-of-csharp/",
-        "ClassNames": "",
-        "Height": 96
-      }
-    ]
-  },
-  "Catching": {
-    "Title": "What's been catching my eye",
-    "Items": [
-      {
-        "Title": "Bun",
-        "Img": "/bun.png",
-        "Link": "https://bun.sh/",
-        "ClassNames": "",
-        "Height": 84
-      },
-      {
-        "Title": "GO",
-        "Img": "/gopher.png",
-        "Link": "https://go.dev/",
-        "ClassNames": "animate-bounce",
-        "Height": 130.8
-      },
-      {
-        "Title": "Deno",
-        "Img": "/deno.png",
-        "Link": "https://deno.com/",
-        "ClassNames": "",
-        "Height": 96
-      },
-    ]
-  },
-  "UpTo": {
-    "Title": "What I've been up to",
-    "Text": [
-      "During the day, work has mainly been building out the UI for our company's web applications and creating microsites from time to time.",
-      "I've recently been re-sparking my backend abilities by studying GO. It's a bit different from C# but still nice to know a compiled language.",
-      "I decided to revamp this site as well. I want to have fun with it and keep adding content; perhaps make this a web game that goes beyond a single page portfolio site."
-    ]
-  }
+export const handler: Handlers<ContentProps | null> = {
+  GET(_, ctx) {
+
+   const musicIcon = (<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" fill="currentColor" class="bi bi-music-note-beamed" viewBox="0 0 16 16">
+      <path d="M6 13c0 1.105-1.12 2-2.5 2S1 14.105 1 13c0-1.104 1.12-2 2.5-2s2.5.896 2.5 2zm9-2c0 1.105-1.12 2-2.5 2s-2.5-.895-2.5-2 1.12-2 2.5-2 2.5.895 2.5 2z"/>
+      <path fill-rule="evenodd" d="M14 11V2h1v9h-1zM6 3v10H5V3h1z"/>
+      <path d="M5 2.905a1 1 0 0 1 .9-.995l8-.8a1 1 0 0 1 1.1.995V3L5 4V2.905z"/>
+    </svg>)
+
+   const treeIcon = (<svg xmlns="http://www.w3.org/2000/svg" width="180" height="180" fill="currentColor" class="bi bi-tree-fill" viewBox="0 0 16 16">
+      <path d="M8.416.223a.5.5 0 0 0-.832 0l-3 4.5A.5.5 0 0 0 5 5.5h.098L3.076 8.735A.5.5 0 0 0 3.5 9.5h.191l-1.638 3.276a.5.5 0 0 0 .447.724H7V16h2v-2.5h4.5a.5.5 0 0 0 .447-.724L12.31 9.5h.191a.5.5 0 0 0 .424-.765L10.902 5.5H11a.5.5 0 0 0 .416-.777l-3-4.5z"/>
+    </svg>)
+    
+   return ctx.render({
+    musicIcon,
+    treeIcon
+   });
+ },
 };
 
-export default function Home() {
+export default function Home({ data: { musicIcon, treeIcon } }: PageProps<ContentProps>) {
 
-  return (
-    <Main>
-      <div className="flex gap-4 justify-between items-center lg:justify-center lg:gap-12">
+  return (<div className="flex flex-col gap-2 lg:grid lg:grid-cols-2 lg:gap-2">
+    <Main id="main" accentColor="blue-500" className="text-white">
+      <article className="flex gap-4 justify-between items-center lg:justify-center lg:gap-12">
         <img alt="Photo of me" src="/me-sm.jpg" className="select-none pointer-events-none w-32 h-32 rounded-full inline-block md:hidden" />
 
         <div className="flex flex-col gap-2 lg:text-center">
-          <h1 className="text-2xl md:text-4xl lg:text-6xl font-bold">{HomeMap.Hero.Title}</h1>
+          <h1 className="text-2xl md:text-4xl xl:text-6xl font-bold">{HomeMap.Hero.Title}</h1>
           {HomeMap.Hero.Text}
         </div>
         <img alt="Photo of me" src="/me.jpg" className="select-none pointer-events-none w-60 h-60 rounded-full hidden md:inline-block" />
-      </div>
+      </article>
 
       <Section>
-        <h1 className="text-2xl lg:text-3xl font-bold">{HomeMap.Socials.Title}</h1>
+        <h2 className="text-2xl lg:text-3xl font-bold">{HomeMap.Socials.Title}</h2>
         <div className="flex flex-wrap gap-4">
-        {HomeMap.Socials.Items.map(i => <a className="border border-white rounded-full py-1 px-4 self-start hover:text-black hover:bg-white" href={i.Link} target="_blank">
-          {i.Text}
-        </a>)}
+          {HomeMap.Socials.Items.map(i => <a className="border border-white rounded-full py-1 px-4 self-start hover:text-black hover:bg-white" href={i.Link} target="_blank">
+            {i.Text}
+          </a>)}
         </div>
       </Section>
 
       <Section>
-        <h1 className="text-2xl lg:text-3xl font-bold">{HomeMap.About.Title}</h1>
+        <h2 className="text-2xl lg:text-3xl font-bold">{HomeMap.About.Title}</h2>
         <div className="flex flex-col gap-2">
-        {HomeMap.About.Text.map(t => <p key={t}>{t}</p>)}
+          {HomeMap.About.Text.map(t => <p key={t}>{t}</p>)}
         </div>
       </Section>
 
       <Section>
-        <h1 className="text-2xl lg:text-3xl font-bold">{HomeMap.Tech.Title}</h1>
+        <h2 className="text-2xl lg:text-3xl font-bold">{HomeMap.Tech.Title}</h2>
         <div className="flex gap-4 flex-wrap items-center">
           {
             HomeMap.Tech.Items.map(t => <a href={t.Link} target="_blank" key={t.Title}>
@@ -148,7 +71,7 @@ export default function Home() {
       </Section>
 
       <Section>
-        <h1 className="text-2xl lg:text-3xl font-bold">{HomeMap.Catching.Title}</h1>
+        <h2 className="text-2xl lg:text-3xl font-bold">{HomeMap.Catching.Title}</h2>
         <div className="flex flex-wrap gap-4 items-center">
           {
             HomeMap.Catching.Items.map(t => <a href={t.Link} target="_blank" key={t.Title}>
@@ -159,7 +82,7 @@ export default function Home() {
       </Section>
 
       <Section>
-        <h1 className="text-2xl lg:text-3xl font-bold">{HomeMap.UpTo.Title}</h1>
+        <h2 className="text-2xl lg:text-3xl font-bold">{HomeMap.UpTo.Title}</h2>
         <div className="flex flex-wrap gap-4">
           {
             HomeMap.UpTo.Text.map(t => <p key={t}>
@@ -168,11 +91,22 @@ export default function Home() {
           }
         </div>
       </Section>
-
-      <div className="pt-5 flex flex-col">
-        <BlueSnail maxSteps={190} />
-        <span className="text-blue-400">Last Updated: 10/17/2023</span>
-      </div>
     </Main>
-  );
+
+    <div className="flex flex-col gap-2 md:max-h-screen">
+      <Main id="music" accentColor="purple-500" className="md:h-1/2 md:max-h-1/2 text-purple-500">
+          <section className="flex flex-col gap-4 items-center justify-center h-full">
+            <div class="animate-pulse">{musicIcon}</div>
+            <h2 className="text-center text-xl">Coming Soon</h2>
+          </section>
+      </Main>
+
+      <Main id="nature" accentColor="green-500" className="md:h-1/2 md:max-h-1/2 text-green-600">
+        <section className="flex flex-col gap-4 items-center justify-center h-full">
+            <div class="animate-pulse">{treeIcon}</div>
+            <h2 className="text-center text-xl">Coming Soon</h2>
+        </section>
+      </Main>
+    </div>
+  </div>);
 }

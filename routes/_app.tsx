@@ -13,8 +13,10 @@ export default function App({ Component }: AppProps) {
         <meta name="description" content="Retro inspired site developed by Joe Salinas" />
         <title>Joe Salinas</title>
       </head>
-      <body className="flex flex-col items-center bg-black text-white leading-8 font-mono">
-        <Component />
+      <body className="lg:h-screen bg-black text-white leading-8 font-mono">
+        <div className="h-full flex flex-col items-center justify-center">
+          <Component />
+        </div>
       </body>
     </html>
   );
