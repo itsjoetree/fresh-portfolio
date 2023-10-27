@@ -97,7 +97,7 @@ export const HomeMap = {
       "Text": [
         "During the day, work has mainly been building out the UI for our company's web applications and creating microsites from time to time.",
         "I've recently been re-sparking my backend abilities by studying GO. It's a bit different from C# but still nice to know a compiled language.",
-        "I decided to revamp this site as well. I want to have fun with it and keep adding content; perhaps make this a web game that goes beyond a single page portfolio site."
+        "I recently revamped this site and I want to have fun with adding more content and feature so let's see where this goes!" 
       ]
     }
   };

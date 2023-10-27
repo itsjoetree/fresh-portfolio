@@ -31,13 +31,13 @@ export const handler: Handlers<ContentProps | null> = {
 
 export default function Home({ data: { musicIcon, treeIcon } }: PageProps<ContentProps>) {
 
-  return (<div className="flex flex-col gap-2 lg:grid lg:grid-cols-2 lg:gap-2">
+  return (<div className="flex flex-col gap-2">
     <Main id="main" accentColor="blue-500" className="text-white">
-      <article className="flex gap-4 justify-between items-center lg:justify-center lg:gap-12">
-        <img alt="Photo of me" src="/me-sm.jpg" className="select-none pointer-events-none w-32 h-32 rounded-full inline-block md:hidden" />
+      <article className="flex flex-col gap-4 sm:items-center sm:flex-row md:justify-between md:justify-center md:gap-12">
+        <img alt="Photo of me" src="/me-sm.jpg" className="self-center select-none pointer-events-none w-32 h-32 rounded-full inline-block md:hidden" />
 
         <div className="flex flex-col gap-2 lg:text-center">
-          <h1 className="text-2xl md:text-4xl xl:text-6xl font-bold">{HomeMap.Hero.Title}</h1>
+          <h1 className="text-2xl sm:text-4xl md:text-6xl font-bold">{HomeMap.Hero.Title}</h1>
           {HomeMap.Hero.Text}
         </div>
         <img alt="Photo of me" src="/me.jpg" className="select-none pointer-events-none w-60 h-60 rounded-full hidden md:inline-block" />
@@ -93,7 +93,7 @@ export default function Home({ data: { musicIcon, treeIcon } }: PageProps<Conten
       </Section>
     </Main>
 
-    <div className="flex flex-col gap-2 md:max-h-screen">
+    {/* <div className="flex flex-col gap-2 md:max-h-screen">
       <Main id="music" accentColor="purple-500" className="md:h-1/2 md:max-h-1/2 text-purple-500">
           <section className="flex flex-col gap-4 items-center justify-center h-full">
             <div class="animate-pulse">{musicIcon}</div>
@@ -107,6 +107,6 @@ export default function Home({ data: { musicIcon, treeIcon } }: PageProps<Conten
             <h2 className="text-center text-xl">Coming Soon</h2>
         </section>
       </Main>
-    </div>
+    </div> */}
   </div>);
 }

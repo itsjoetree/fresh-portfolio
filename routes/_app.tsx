@@ -14,7 +14,7 @@ export default function App({ Component }: AppProps) {
         <title>Joe Salinas</title>
       </head>
       <body className="lg:h-screen bg-black text-white leading-8 font-mono">
-        <div className="h-full flex flex-col items-center justify-center">
+        <div className="h-full flex flex-col items-center justify-center m-2 lg:m-0">
           <Component />
         </div>
       </body>
