@@ -92,21 +92,5 @@ export default function Home({ data: { musicIcon, treeIcon } }: PageProps<Conten
         </div>
       </Section>
     </Main>
-
-    {/* <div className="flex flex-col gap-2 md:max-h-screen">
-      <Main id="music" accentColor="purple-500" className="md:h-1/2 md:max-h-1/2 text-purple-500">
-          <section className="flex flex-col gap-4 items-center justify-center h-full">
-            <div class="animate-pulse">{musicIcon}</div>
-            <h2 className="text-center text-xl">Coming Soon</h2>
-          </section>
-      </Main>
-
-      <Main id="nature" accentColor="green-500" className="md:h-1/2 md:max-h-1/2 text-green-600">
-        <section className="flex flex-col gap-4 items-center justify-center h-full">
-            <div class="animate-pulse">{treeIcon}</div>
-            <h2 className="text-center text-xl">Coming Soon</h2>
-        </section>
-      </Main>
-    </div> */}
   </div>);
 }
